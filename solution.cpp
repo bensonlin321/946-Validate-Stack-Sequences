@@ -25,7 +25,7 @@ public:
             printf("push: %d\n", pushed[i]);
             tmp_stack.push(pushed[i]);
 
-            while(pop_idx < popped.size() && tmp_stack.top() == popped[pop_idx] && !tmp_stack.empty()) {
+            while(pop_idx < popped.size() && !tmp_stack.empty() && tmp_stack.top() == popped[pop_idx]) {
                 printf("pop: %d\n", tmp_stack.top());
                 tmp_stack.pop();
                 pop_idx++;
@@ -37,7 +37,7 @@ public:
 
 int main(int argc, char *argv[]) {
     Solution *s = new Solution();
-    std::vector<int> nums1{1,2,3,4,5};
-    std::vector<int> nums2{4,5,3,2,1};
+    std::vector<int> nums1{1,0};
+    std::vector<int> nums2{1,0};
     printf("output:%d\n", s -> validateStackSequences(nums1, nums2));
 }
